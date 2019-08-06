@@ -1,8 +1,10 @@
 ---
 layout: post
 title: PyInstaller with Qt5 WebEngineView using PySide2
-toc: true
 ---
+
+* TOC
+{:toc}
 
 ## Introduction
 
