@@ -18,7 +18,7 @@ avatar: https://gravatar.com/avatar/fe717278434727928d282127df2334af
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:
+  email: minan@nimbco.com
   facebook:
   flickr:
   github: 
@@ -76,6 +76,7 @@ sass:
 gems:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-toc # Create a toc
 
 # Exclude these files from your production _site
 exclude:

@@ -1,7 +1,10 @@
 ---
 layout: post
 title: PyInstaller with Qt5 WebEngineView using PySide2
+toc: true
 ---
+
+## Introduction
 
 As I'm writing this (Aug 2019), there are a number of teething issues and rotating knives if you try and package up a cross-platform (Mac, Linux, Windows) app with a Qt `WebEngineView` using the official Python Qt bindings from PySide2 and PyInstaller. I'll go through some of the issues I encountered to hopefully save you some grey hairs. 
 
@@ -15,6 +18,8 @@ I'm using
 * Windows 10 for the most part, but Mac and Linux will come in later in the post
 
 You can follow along with a simple app at [github](https://github.com/tangm/pyinstaller-pyside2webview-sample).
+
+## Project Layout
 
 At a high level, the WebEngineView communicates with the python backend via Qt's QWebChannel (Websockets under the covers). On the python side, objects are made available via `QWebChannel#registerObject`. 
 
@@ -123,6 +128,7 @@ On the HTML view, the registered objects are made available from the JS QWebChan
 </html>
 ```
 
+## Actually making the damn thing work
 
 To get this up and running
 * Create a virtualenv and activate it
@@ -337,7 +343,7 @@ It would be nice if runtime hooks could be overridden, but there is an [open iss
 
 And after running `pyinstaller main.spec` , the generated mac executable should run quite nicely.
 
-### Conclusion
+## Conclusion
 
 A mini rant first. Most of these issues stem from outdated hooks provided by the `PyInstaller` package. Don't get me wrong, I have immense respect for the folks who maintain `PyInstaller`, it's an amazing library considering the number of ways you can glue python apps together! The reality is that it is practically impossible that such a widely used, open source, infrastructure geared library whose main use case is integration with the universe of other 3rd party libraries will be able to keep up with changes to these libraries across the board. 
 
@@ -349,7 +355,7 @@ For bonus points, here are somethings you can do to make your ~~web~~ desktop ap
 * Add an icon (used for the executable and taskbar)
 * Use `hdiutil` on a mac to create a dmg 
 
-### Resources
+## Resources
 
 * PyInstaller - https://pythonhosted.org/PyInstaller/
 * PySide2 - https://wiki.qt.io/Qt_for_Python
