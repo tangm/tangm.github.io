@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
 On the HTML view, the registered objects are made available from the JS QWebChannel (Note the `qwebchannel.js` script being loaded)
 
-```HTML
+```html
 <html>
 <head>
   <meta charset="utf-8">
@@ -159,7 +159,7 @@ ImportError: could not import module 'PySide2.QtPrintSupport'
 
 So the archive couldn't find the dependent module `PySide2.QtPrintSupport`, likely because it wasn't imported using a standard python mechanism. To let PyInstaller know about this module, we need to add a *hidden import*, in the `main.spec`:
 
-```python
+```diff
               datas=[],
 -             hiddenimports=[],
 +             hiddenimports=['PySide2.QtPrintSupport'],
@@ -260,7 +260,7 @@ Long story short, we need to incoroporate the updated changes made in `PyQt5` to
 
 We also need to tell PyInstaller about our user-supplied hook dir. In `main.spec`
 
-```python
+```diff
               binaries=[],
               datas=[],
               hiddenimports=['PySide2.QtPrintSupport'],
@@ -279,7 +279,7 @@ Success! At least for some of you. If you're running the generated executable fr
 
 If we take a look at the `dist\main` dir, we'll find that we haven't actually copied our `data\index.html` in. Let's add it in `main.spec`, with the `datas` keyword (remember the `datas` from the `PySide2` hook above?).
 
-```python
+```diff
  a = Analysis(['main.py'],
               pathex=['C:\\Users\\mtan\\projects\\pyinstaller-pyside2webview-sample'],
               binaries=[],
@@ -350,6 +350,7 @@ For bonus points, here are somethings you can do to make your ~~web~~ desktop ap
 * Use `hdiutil` on a mac to create a dmg 
 
 ### Resources
-PyInstaller - https://pythonhosted.org/PyInstaller/
-PySide2 - https://wiki.qt.io/Qt_for_Python
+
+* PyInstaller - https://pythonhosted.org/PyInstaller/
+* PySide2 - https://wiki.qt.io/Qt_for_Python
 
