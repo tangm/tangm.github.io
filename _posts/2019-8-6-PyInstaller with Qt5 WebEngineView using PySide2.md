@@ -5,6 +5,8 @@ title: PyInstaller with Qt5 WebEngineView using PySide2
 
 * TOC
 {:toc}
+## Introduction
+
 As I'm writing this (Aug 2019), there are a number of teething issues and rotating knives if you try and package up a cross-platform (Mac, Linux, Windows) app with a Qt `WebEngineView` using the official Python Qt bindings from PySide2 and PyInstaller. I'll go through some of the issues I encountered to hopefully save you some grey hairs. 
 
 Note that PyInstaller is not a cross-compiler, so running on separate platforms is still required. We'll get it working for windows, before moving on to other OSes.
