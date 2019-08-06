@@ -108,7 +108,7 @@ On the HTML view, the registered objects are made available from the JS QWebChan
           (channel) => resolve(channel.objects.backend));
       })
 
-      // Show a preview when an image file is selected
+      // Call to the other side
       sayHello.addEventListener('click', function(){
         result.textContent = '';
         getBackend.then((backend) => {
