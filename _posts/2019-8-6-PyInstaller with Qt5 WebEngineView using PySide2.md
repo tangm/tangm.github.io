@@ -15,7 +15,7 @@ I'm using
 * PySide2 5.13.0
 * Python 3.7.4
 * Virtualenv 16.7.2
-* PyInstaller develop @ [b5826b4a82ecc0f021ab584d0ce68a82e64ffca5](https://github.com/pyinstaller/pyinstaller/tree/b5826b4a82ecc0f021ab584d0ce68a82e64ffca5)
+* PyInstaller develop @ [b5826b4a82](https://github.com/pyinstaller/pyinstaller/tree/b5826b4a82ecc0f021ab584d0ce68a82e64ffca5)
 * Windows 10 for the most part, but Mac and Linux will come in later in the post
 
 You can follow along with a simple app at [github](https://github.com/tangm/pyinstaller-pyside2webview-sample).
