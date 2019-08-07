@@ -265,7 +265,7 @@ def test_PySide2_QWebEngine(pyi_builder, data_dir):
 
 if we look further in the file though, we find that `PyQt5` seems to be working fine, and the [`PyQt5` web engine hook]( https://github.com/pyinstaller/pyinstaller/blob/b5826b4a82ecc0f021ab584d0ce68a82e64ffca5/PyInstaller/hooks/hook-PyQt5.QtWebEngineWidgets.py) seems to have lots more stuff and is alot newer than the [`PySide2` hook](https://github.com/pyinstaller/pyinstaller/blob/b5826b4a82ecc0f021ab584d0ce68a82e64ffca5/PyInstaller/hooks/hook-PySide2.QtWebEngineWidgets.py) .
 
-Long story short, we need to incoroporate the updated changes made in `PyQt5` to accommodate newer versions into the `PySide2` hook. You can find the cobbled together version in the `hooks` dir under [`hook-PySide2.QtWebEngineWidgets.py`](https://github.com/tangm/pyinstaller-pyside2webview-sample/blob/master/hooks/hook-PySide2.QtWebEngineWidgets.py)
+Long story short, we need to incoroporate the updated changes made in `PyQt5` to accommodate newer versions into the `PySide2` hook. You can find the cobbled together version in the `hooks` dir under [`hook-PySide2.QtWebEngineWidgets.py`](https://github.com/tangm/pyinstaller-pyside2webview-sample/blob/master/hooks/hook-PySide2.QtWebEngineWidgets.py) of the sample project repository.
 
 We also need to tell PyInstaller about our user-supplied hook dir. In `main.spec`
 
