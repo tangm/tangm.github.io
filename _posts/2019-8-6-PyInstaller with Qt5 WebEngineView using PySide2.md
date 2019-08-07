@@ -244,7 +244,7 @@ datas = (collect_data_files('PySide2', True, os.path.join('Qt', 'resources')) +
 
 In a hook, `datas` is an array of 2-tuples indicating supporting resource files to be copied, of the form `(src, dest)`, e.g. `[('somefile.exe', '.'), ('someotherfile.data', 'blah/someotherfile.data')]` would copy the file `somefile.exe` to the root of the PyInstaller distribution folder and `someotherfile.data` to the `blah` dir in the distribution folder. 
 
-`collect_data_files('PySide2', True, os.path.join('Qt', 'resources'))` returns an array of 2-tuples to the effect of "copy all files in the `Qt/resources` subfolder of the installed `PySide2` module (`virtualenv site package dir>\PySide2\Qt\resources`". 
+`collect_data_files('PySide2', True, os.path.join('Qt', 'resources'))` returns an array of 2-tuples to the effect of "copy all files in the `Qt/resources` subfolder of the installed `PySide2` module (`virtualenv site package dir>\PySide2\Qt\resources`)". 
 
 Except if we were to look at the appropriate folder:
 
