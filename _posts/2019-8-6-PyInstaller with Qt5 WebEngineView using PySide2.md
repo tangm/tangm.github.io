@@ -20,6 +20,8 @@ I'm using
 
 You can follow along with a simple app at [github](https://github.com/tangm/pyinstaller-pyside2webview-sample).
 
+![PySide2 WebEngineView](/images/pyinstaller/PyInstallerPySide2Demo.gif)
+
 ## Project Layout
 
 At a high level, the WebEngineView communicates with the python backend via Qt's QWebChannel (Websockets under the covers). On the python side, objects are made available via `QWebChannel#registerObject`. 
@@ -353,6 +355,7 @@ As long as there are workable mechanisms in place to extend `PyInstaller` (like 
 As a disclaimer, I've not used python or Qt for that matter in anger, so any clarification is welcome!
 
 For bonus points, here are somethings you can do to make your ~~web~~ desktop app more spiffy.
+* Add additional styles to make it look like an actual desktop app
 * Add an icon (used for the executable and taskbar)
 * Use `hdiutil` on a mac to create a dmg 
 
