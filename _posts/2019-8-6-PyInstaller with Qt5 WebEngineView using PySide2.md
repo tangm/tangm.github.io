@@ -363,4 +363,4 @@ For bonus points, here are somethings you can do to make your ~~web~~ desktop ap
 
 * PyInstaller - https://pythonhosted.org/PyInstaller/
 * PySide2 - https://wiki.qt.io/Qt_for_Python
-
+* Completed sample - https://github.com/tangm/pyinstaller-pyside2webview-sample
