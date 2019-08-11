@@ -329,13 +329,13 @@ if sys.platform == 'darwin':
     ))
 ```
 
-It's alot harder to overwrite a runtime hook, because PyInstaller provided runtime hooks are executed _after_ user provided runtime hooks according to [PyInstaller documentation](https://pythonhosted.org/PyInstaller/when-things-go-wrong.html?highlight=runtime#changing-runtime-behavior), so we'll have to overwrite it ourselves:
+It's alot harder to overwrite a runtime hook, because PyInstaller provided runtime hooks are executed _after_ user provided runtime hooks according to [PyInstaller documentation](https://pythonhosted.org/PyInstaller/when-things-go-wrong.html?highlight=runtime#changing-runtime-behavior), so we'll have to overwrite it ourselves in [`main.py`](https://github.com/tangm/pyinstaller-pyside2webview-sample/blob/master/main.py#L9):
 
 ```python
 # Some hackery required for pyInstaller
 if sys.platform == 'darwin':
     os.environ['QTWEBENGINEPROCESS_PATH'] = os.path.normpath(os.path.join(
-        sys._MEIPASS, 'PySide2', 'lib',
+        sys._MEIPASS, 'PySide2', 'Qt', 'lib',
         'QtWebEngineCore.framework', 'Helpers', 'QtWebEngineProcess.app',
         'Contents', 'MacOS', 'QtWebEngineProcess'
     ))
