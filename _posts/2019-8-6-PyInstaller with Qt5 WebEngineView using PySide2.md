@@ -317,7 +317,7 @@ Run through the gauntlet of creating a new virtual env again, installing the req
 Could not find QtWebEngineProcess on Mac
 ```
 
-From our favourite [PYSIDE-642](https://bugreports.qt.io/browse/PYSIDE-642?focusedCommentId=452047&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-452047) which gave us the previous recommended layout for windows, it turns out that an outdated PyInstaller *runtime* hook is to blame. 
+From our favourite [PYSIDE-642](https://bugreports.qt.io/browse/PYSIDE-642?focusedCommentId=452047&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-452047) which gave us the previous recommended layout for windows, it turns out that an [outdated PyInstaller *runtime* hook](https://github.com/pyinstaller/pyinstaller/blob/b5826b4a82ecc0f021ab584d0ce68a82e64ffca5/PyInstaller/loader/rthooks/pyi_rth_pyside2webengine.py) is to blame. 
 
 ```python
 # See ``pyi_rth_qt5.py`: use a "standard" PyQt5 layout.
