@@ -146,7 +146,7 @@ While the real fix for this should probably be to have the hook do its own detec
 
 ```python
 import distutils
-if distutils.distutils_path.endswith('__init__.py'):
+if (getattr(distutils, 'distutils_path', None) != None) and distutils.distutils_path.endswith('__init__.py'):
     distutils.distutils_path = os.path.dirname(distutils.distutils_path)
 ``` 
 
@@ -260,7 +260,23 @@ from fastai.vision import *
 
 just before we `import` `fastai.vision`.
 
-Drumroll please, as we run `pyinstaller main.spec`, and `dist\main\main`....
+It will now work on windows, but if you try and run it on a mac you will find a new, strange error:
+
+### FileNotFoundError: Tcl data directory "..." not found
+
+One of the transitive dependencies of fast.ai depends on the `tkinter` python interface to the Tcl/Tk GUI framework (I suspect `matplotlib` or something similar), which has been bundled in more recent versions of python installations. However, the hook that handles support files for `tkinter` does not take these bundled versions into account. The real MVP here is (this comment)[https://github.com/pyinstaller/pyinstaller/issues/3753#issuecomment-432464838]. 
+
+So you can choose to copy the hook verbatim, modifying the suggested lines:
+```python
+#change line 183 (was line 188 on my instal;ation)
+if 'Library/Frameworks' in path_to_tcl:
+#by adding a condition:
+if 'Library/Frameworks' in path_to_tcl and 'Python' not in path_to_tcl:
+```
+
+or edit the hook in your venv distribution at something like `venv/lib/pythonX.Y/site-packages/PyInstaller/hooks/hook-_tkinter.py`.
+
+With that, drumroll please, as we run `pyinstaller main.spec`, and `dist\main\main`....
 
 ![Desktop Bear Classifier 2](/images/fastai/PyInstallerPySide2FastAiDemo2.gif)
 
